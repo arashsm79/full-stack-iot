@@ -85,12 +85,15 @@ Here is an example of the JSON object and the gateway sends:
 A super simple Django app that receives data from the gateway and parses the JSON. It then verifies that the names of the devices in the JSON are valid; if they are indeed valid, it stores the time series into a SQLite database. You can add devices using Django admin (username: admin, password: admin). The name of the device is its MAC address.
 
 Database ER diagram:
+
 ![er](/screenshots/db-1.png)
 
 Example timeseries:
+
 ![timeseries](/screenshots/db-2.png)
 
 Example devices:
+
 ![devices](/screenshots/db-3.png)
 
 There is a jupyter notebook in the server directory that connects to the SQLite database and periodically plots the sensor's readings.
