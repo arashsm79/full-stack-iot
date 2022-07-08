@@ -1,0 +1,47 @@
+Sensors:
+1- flash with wifi manager
+2- connect to sensor's AP
+3- set ssid and password of gateway
+4- sensors connects to gateway and sends data in the following way:
+    HTTP POST:
+        Body: (this can be a byte array)
+            sensor_id: (could be MAC address, access token, ...)
+            value1:
+            value2:
+
+Gateway:
+1- flash with wifi manager
+2- connect to gateways AP
+3- set ssid and password of internet router
+4- gateway connects to server and gets its configuration and the configuration of
+   sensors that are going to send data to it. Here is an example gateway configuration:
+   {
+    "devices": [
+        {
+            "name": "esp-sensor1",
+            "data": [
+                {
+                    "name": "temperature",
+                    "type": "double"
+                },
+                {
+                    "name": "humidity",
+                    "type": "double"
+                },
+            ]
+        },
+        {
+            "name": "esp-sensor2",
+            "data": [
+                {
+                    "name": "luminosity",
+                    "type": "int"
+                }
+            ]
+        }
+        ]
+    }
+
+5- The gateway creates endpoints for each device and sets up proper handlers for each of them.
+6- Aggregate and process sensor data into a larger array and send it to server
+

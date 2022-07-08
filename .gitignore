@@ -1,0 +1,7 @@
+build/
+.nix
+__pycache__
+.cache
+.ccls-cache
+
+server/.venv
