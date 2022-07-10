@@ -5,6 +5,7 @@
 * [Sensors](#Sensors)
 * [Gateway](#Gateway)
 * [Sever](#Sever)
+* [Building and Running](#Building-and-Running)
 * [Dependencies](#Dependencies)
 
 ## Introduction
@@ -101,6 +102,17 @@ There is a jupyter notebook in the server directory that connects to the SQLite 
 ![ui](/screenshots/ui-1.png)
 ![ui](/screenshots/ui-2.png)
 
+## Building and Running
+Use `esp-idf` to build, flash and monitor the sensors and the gateway:
+```bash
+$ idf.py build
+$ idf.py -p /dev/ttyUSBx flash monitor
+```
+
+Use the following command to run the server:
+```bash
+$ python manage.py runserver_plus --cert-file server.crt --key-file server.key --keep-meta-shutdown 0.0.0.0:8000
+```
 
 ## Dependencies
 * [esp-idf](https://github.com/espressif/esp-idf)
